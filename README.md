@@ -1,6 +1,6 @@
 # Marvel Characters Application
 
-THe app is alive at Heroku!
+The app is alive at Heroku!
 
 https://fathomless-brook-16439.herokuapp.com/
 
