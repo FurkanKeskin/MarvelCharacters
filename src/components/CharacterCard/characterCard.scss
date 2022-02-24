@@ -1,0 +1,23 @@
+.list-item {
+    display: flex;
+    width: auto;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    height: 5rem;
+
+    img {
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+    }
+
+    > a {
+        text-decoration: none;
+        color: aliceblue;
+        > span {
+            padding-left: 2rem;
+        }
+    }
+}
