@@ -48,7 +48,7 @@ const Details = () => {
           { character.series.available !== 0 && (
             <div className="detail__card-right">
                 <div className="detail__card-right -series">
-                  <h2>Most recent {character.series.available} series of {character.name}</h2>
+                  <h2>Most recent {character.series.available > 10 ? "10" : character.series.available} series of {character.name}</h2>
                   <ul>
                       {/* {console.log("SORTED REYIS", character.series?.items?.slice(0, 10).sort(sortSeries))} */}
                       {character.series?.items?.slice(0, 10).sort(sortSeries).map((item, index) => <li  key={index}>{item.name}</li>)}
