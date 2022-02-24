@@ -13,7 +13,6 @@ const Details = () => {
         const fetchData = async () => {
             try {
                 const { data: response } = await axios.get(`${BASE_URL}/${charId}${URL_SUFFIX}`);
-                console.log("CHAR DATA", response.data.results[0])
                 setCharacter(response.data.results[0])
             } catch (error) {
                 console.error(error.message);
