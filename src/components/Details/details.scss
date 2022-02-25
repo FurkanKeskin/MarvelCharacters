@@ -2,7 +2,6 @@ $ul-bg-img: url("../../assets/img/comic-icon.png");
 .detail {
     padding-bottom: 2rem;
     width: auto;
-    padding-inline: 20%;
     >.-singleCard {
         display: flex;
         flex-direction: column;
@@ -20,7 +19,8 @@ $ul-bg-img: url("../../assets/img/comic-icon.png");
         flex-wrap: wrap;
         width: 100%;
         padding-top: 3rem;
-        justify-content: space-around;;
+        justify-content: space-around;
+        ;
         gap: 1rem;
         margin: auto;
         &-name {
@@ -32,8 +32,8 @@ $ul-bg-img: url("../../assets/img/comic-icon.png");
             flex-wrap: nowrap;
             flex: 1;
             img {
-                width: 25rem;
-                height: 25rem;
+                width: 17rem;
+                height: 17rem;
             }
             >.-description {
                 h3 {
@@ -66,13 +66,107 @@ $ul-bg-img: url("../../assets/img/comic-icon.png");
                 padding-right: 1rem;
             }
             ul {
+                padding-inline: 0;
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
                 li {
                     display: flex;
-                    justify-content: flex-start;
-                    align-items: center;
+                    align-items: flex-start;
                     align-content: center;
                     flex-wrap: nowrap;
-                    flex-direction: row;
+                    flex-direction: column;
+                    text-align: left;
+                    font-size: x-small;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1028px) {
+    .detail {
+        padding-bottom: 2rem;
+        width: auto;
+        padding-inline: 10%;
+        >.-singleCard {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 2rem;
+            >.detail__card-left {
+                .detail__card-name {
+                    padding-bottom: 1rem;
+                }
+            }
+        }
+        &__card {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 100%;
+            padding-top: 3rem;
+            justify-content: space-around;
+            ;
+            gap: 1rem;
+            margin: auto;
+            &-name {
+                font-size: 1rem;
+            }
+            &-left {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: nowrap;
+                align-items: flex-end;
+                flex: 1;
+                img {
+                    width: 25rem;
+                    height: 25rem;
+                }
+                >.-description {
+                    h3 {
+                        margin-block: 0;
+                        padding-inline: 0;
+                        padding-bottom: 0;
+                    }
+                    p {
+                        max-width: 450px;
+                        margin-top: 0;
+                        text-align: right;
+                        span {
+                            text-decoration: underline;
+                        }
+                    }
+                    display: flex;
+                    flex-direction: column;
+                    flex-wrap: nowrap;
+                    align-items: flex-start;
+                }
+            }
+            &-right {
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+                >h2 {
+                    padding-inline: 5%;
+                    margin-block: 0;
+                }
+                ul>li::before {
+                    text-decoration: none;
+                    content: $ul-bg-img;
+                    font-size: 2rem;
+                    padding-right: 1rem;
+                }
+                ul {
+                    grid-template-columns: repeat(1, minmax(0, 1fr));
+                    li {
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+                        align-content: center;
+                        flex-wrap: nowrap;
+                        flex-direction: row;
+                        font-size: large;
+                    }
                 }
             }
         }

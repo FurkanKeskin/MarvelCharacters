@@ -71,8 +71,9 @@ const Main = () => {
 	);
 
 	return (
-		<div>
-			<h1> All characters </h1>
+    <>
+      <h1> All characters </h1>
+      <div className="container">
 			<div className="card-list">
 				{' '}
 				{allCharacters.length > 0 &&
@@ -85,10 +86,11 @@ const Main = () => {
 							<CharacterCard data={character} key={`${character.id}`} />
 						);
 					})}{' '}
+          {loading && <div className="loading"><div className="lds-circle"><div></div></div>loading... </div>}
 			</div>{' '}
-			{loading && <p> loading... </p>}
 			{pageNum - 1 === totalPages && <p> Furkan </p>}{' '}
 		</div>
+    </>
 	);
 };
 

@@ -1,4 +1,88 @@
+h1 {
+    text-align: center;
+}
+
+.container {
+    background-image: url('../../assets/img/mobile-marvel-bg.png');
+    border-radius: 15px 50px;
+    height: 750px;
+    overflow: auto;
+    scroll-behavior: auto;
+    -ms-overflow-style: none;
+     ::-webkit-scrollbar {
+        display: none;
+    }
+}
+
 .card-list {
+    margin: auto;
     display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    .loading {
+        text-align: center;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        color: slategray;
+        font-weight: 800;
+    }
+}
+
+.lds-circle {
+    display: inline-block;
+    transform: translateZ(1px);
+    >div {
+        background-color: slategray;
+    }
+}
+
+.lds-circle>div {
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    animation: lds-circle 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+@keyframes lds-circle {
+    0%,
+    100% {
+        animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+    }
+    0% {
+        transform: rotateY(0deg);
+    }
+    50% {
+        transform: rotateY(1800deg);
+        animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+    }
+    100% {
+        transform: rotateY(3600deg);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        background-image: url('../../assets/img/marvel-bg.jpg');
+        height: 750px;
+        overflow: auto;
+        scroll-behavior: auto;
+        .card-list {
+            max-width: 1070px;
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+        }
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        &::-moz-scrollbar {
+            display: none;
+        }
+        & {
+            overflow: auto;
+            -ms-overflow-style: none;
+            scrollbar-color: transparent transparent;
+        }
+    }
 }

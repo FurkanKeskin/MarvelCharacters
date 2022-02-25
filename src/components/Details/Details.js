@@ -27,9 +27,10 @@ const Details = () => {
        return Number(results[1].slice(0,4));
     }
 
+    // it was fun doing it..
     const sortSeries = (seriesA, seriesB) => {
-            const a=  formatSeries(seriesA)
-            const b=  formatSeries(seriesB)
+            const a =  formatSeries(seriesA)
+            const b =  formatSeries(seriesB)
             if(a < b) return 1;
             if(a > b) return -1;
             return 0;
@@ -41,14 +42,14 @@ const Details = () => {
       <div className="detail">
         <div className={(character.series.available === 0 ? '-singleCard' : 'detail__card')}>
           <div className="detail__card-left">
-            { character.name &&  <div className="detail__card-name"><span>{character.name}</span></div> }
-            { character.description && <div className="-description">{ character.description !== ' ' && <h3>Character Description:</h3> } <p>{character.description}</p></div> }
+            { character.name &&  <div className="detail__card-name"><h3>{character.name}</h3></div> }
+            { character.description && <div className="-description"><p>{ character.description !== ' ' && <span>Character Description:</span>}&nbsp;{character.description}</p></div> }
             { character.thumbnail.path && <img src={`${character.thumbnail.path}.${character.thumbnail.extension}`} alt='character'/> }
           </div>
           { character.series.available !== 0 && (
             <div className="detail__card-right">
                 <div className="detail__card-right -series">
-                  <h2>Most recent {character.series.available > 10 ? "10" : character.series.available} series of {character.name}</h2>
+                  <h3>Most recent {character.series.available > 10 ? "10" : character.series.available} series of {character.name}</h3>
                   <ul>
                       {/* {console.log("SORTED REYIS", character.series?.items?.slice(0, 10).sort(sortSeries))} */}
                       {character.series?.items?.slice(0, 10).sort(sortSeries).map((item, index) => <li  key={index}>{item.name}</li>)}
